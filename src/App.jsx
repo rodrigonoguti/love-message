@@ -9,19 +9,19 @@ const loveMessages = [
   {
     id: 1,
     message: "Every moment with you feels like a beautiful dream I never want to wake up from.",
-    author: "Your Heart",
-    photo: "https://as2.ftcdn.net/v2/jpg/02/77/68/49/1000_F_277684942_omHlbsMwCEv2SWWuUxvOvnQMVaprYYPD.jpg"
+    // author: "Your Heart",
+    // photo: "https://as2.ftcdn.net/v2/jpg/02/77/68/49/1000_F_277684942_omHlbsMwCEv2SWWuUxvOvnQMVaprYYPD.jpg"
   },
   {
     id: 2,
     message: "In your eyes, I found my home. In your heart, I found my love. In your soul, I found my mate.",
-    author: "Forever Yours",
-    photo: "https://as1.ftcdn.net/v2/jpg/00/88/38/78/1000_F_88387891_n2nqvC7uaVvWIRK9APxMFcmyIRP7vCdZ.jpg"
+    // author: "Forever Yours",
+    // photo: "https://as1.ftcdn.net/v2/jpg/00/88/38/78/1000_F_88387891_n2nqvC7uaVvWIRK9APxMFcmyIRP7vCdZ.jpg"
   },
   {
     id: 3,
     message: "You are the poetry I never knew how to write and the song I never knew how to sing.",
-    author: "My Muse",
+    // author: "My Muse",
     photo: "https://as2.ftcdn.net/v2/jpg/02/77/68/51/1000_F_277685185_UAYxm224UPelni1rxsuAUZQbfhly0RpL.jpg"
   },
   // {
@@ -112,7 +112,7 @@ const MessageSlide = ({ message, index, isActive }) => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          {String(index + 1).padStart(2, '0')}
+          {/* {String(index + 1).padStart(2, '0')} */}
         </motion.div>
         
         <motion.p
@@ -130,7 +130,8 @@ const MessageSlide = ({ message, index, isActive }) => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          — {message.author}
+          {/* — {message.author} */}
+          —
         </motion.span>
         
         {message.photo && (
