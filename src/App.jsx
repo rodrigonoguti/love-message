@@ -191,6 +191,7 @@ const ScrollProgress = ({ currentSlide, totalSlides }) => {
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const containerRef = useRef(null);
   const isScrollingRef = useRef(false);
   const lastWheelTimeRef = useRef(0);
@@ -221,6 +222,11 @@ function App() {
       if (Math.abs(accumulatedDeltaRef.current) >= threshold) {
         const direction = accumulatedDeltaRef.current > 0 ? 1 : -1;
         
+        // Set hasScrolled to true on first scroll
+        if (!hasScrolled) {
+          setHasScrolled(true);
+        }
+        
         setCurrentSlide(prev => {
           const newSlide = Math.max(0, Math.min(loveMessages.length, prev + direction));
           return newSlide;
@@ -242,11 +248,19 @@ function App() {
       
       if (e.key === 'ArrowDown' || e.key === ' ') {
         e.preventDefault();
+        // Set hasScrolled to true on first keyboard navigation
+        if (!hasScrolled) {
+          setHasScrolled(true);
+        }
         setCurrentSlide(prev => Math.min(loveMessages.length, prev + 1));
         isScrollingRef.current = true;
         setTimeout(() => { isScrollingRef.current = false; }, 800);
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
+        // Set hasScrolled to true on first keyboard navigation
+        if (!hasScrolled) {
+          setHasScrolled(true);
+        }
         setCurrentSlide(prev => Math.max(0, prev - 1));
         isScrollingRef.current = true;
         setTimeout(() => { isScrollingRef.current = false; }, 800);
@@ -284,26 +298,28 @@ function App() {
       <div className="background-gradient"></div>
       <div className="stars"></div>
       
-      {/* Hidden YouTube Video for Background Music */}
-      <div className="hidden-video">
-        <iframe
-          width="1"
-          height="1"
-          src={youtubeVideo}
-          title="Background Music"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          style={{
-            position: 'absolute',
-            top: '-9999px',
-            left: '-9999px',
-            visibility: 'hidden',
-            opacity: 0,
-            pointerEvents: 'none'
-          }}
-        ></iframe>
-      </div>
+      {/* Hidden YouTube Video for Background Music - Only plays after first scroll */}
+      {hasScrolled && (
+        <div className="hidden-video">
+          <iframe
+            width="1"
+            height="1"
+            src={youtubeVideo}
+            title="Background Music"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{
+              position: 'absolute',
+              top: '-9999px',
+              left: '-9999px',
+              visibility: 'hidden',
+              opacity: 0,
+              pointerEvents: 'none'
+            }}
+          ></iframe>
+        </div>
+      )}
       
       <ScrollProgress currentSlide={currentSlide} totalSlides={loveMessages.length} />
       
