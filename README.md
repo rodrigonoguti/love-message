@@ -2,6 +2,8 @@
 
 A beautiful React application that displays animated love messages as you scroll down the page. Each message appears with smooth animations, 3D effects, and romantic styling.
 
+⚠️ PS: project made with vibe-coding.
+
 ## Features ✨
 
 - **Smooth Scroll Animations**: Messages appear with beautiful entrance animations as you scroll
