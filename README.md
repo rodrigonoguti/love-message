@@ -59,11 +59,36 @@ const loveMessages = [
   {
     id: 11,
     message: "Your custom love message here...",
-    author: "Your Name",
+    author: "Your Name", // Optional
+    photo: "https://your-image-url.com/image.jpg", // Optional photo
   },
   // ... add more messages
 ];
 ```
+
+### Adding Photos to Messages
+
+You can add photos to any message by including a `photo` property with the image URL:
+
+```javascript
+{
+  id: 3,
+  message: "You are the poetry I never knew how to write...",
+  author: "My Muse",
+  photo: "https://example.com/romantic-photo.jpg"
+}
+```
+
+### Customizing Background Music
+
+Change the YouTube video that plays as background music by updating the `youtubeVideo` constant in `src/App.jsx`:
+
+```javascript
+const youtubeVideo =
+  "https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&playlist=YOUR_VIDEO_ID&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&mute=0&start=0";
+```
+
+**Note:** The background music only starts playing after the user begins scrolling.
 
 ### Changing Colors
 
