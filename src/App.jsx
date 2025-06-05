@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './App.css';
 
+const youtubeVideo = "https://www.youtube.com/embed/l6VdQC-i-SE?autoplay=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&mute=0&start=0"
+
 const loveMessages = [
   {
     id: 1,
@@ -281,6 +283,27 @@ function App() {
     <div className="App" ref={containerRef}>
       <div className="background-gradient"></div>
       <div className="stars"></div>
+      
+      {/* Hidden YouTube Video for Background Music */}
+      <div className="hidden-video">
+        <iframe
+          width="1"
+          height="1"
+          src={youtubeVideo}
+          title="Background Music"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{
+            position: 'absolute',
+            top: '-9999px',
+            left: '-9999px',
+            visibility: 'hidden',
+            opacity: 0,
+            pointerEvents: 'none'
+          }}
+        ></iframe>
+      </div>
       
       <ScrollProgress currentSlide={currentSlide} totalSlides={loveMessages.length} />
       

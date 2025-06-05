@@ -91,6 +91,30 @@ body {
   box-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
 }
 
+/* Hidden Video for Background Music */
+.hidden-video {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -999;
+}
+
+.hidden-video iframe {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Floating Hearts */
 .floating-heart {
   position: fixed;
