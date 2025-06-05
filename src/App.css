@@ -181,7 +181,7 @@ body {
 .scroll-indicator {
   font-size: 2rem;
   color: #ffcde6;
-  cursor: pointer;
+  cursor: default;
   animation: bounce 2s infinite;
 }
 
@@ -202,7 +202,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 5rem;
+  padding: 2rem 10rem;
   position: relative;
   flex-shrink: 0;
   width: 100%;
