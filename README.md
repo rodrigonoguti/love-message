@@ -109,7 +109,6 @@ The built files will be in the `dist/` directory, ready for deployment.
 ## Features in Detail 🌟
 
 - **Hero Section**: Animated title with glowing text effects
-- **Message Cards**: Alternating left/right layout with glass morphism
 - **Floating Hearts**: Continuously animated hearts floating across the screen
 - **Starry Background**: Animated star field with moving gradients
 - **Scroll Indicators**: Bouncing arrow to guide user interaction
