@@ -159,7 +159,7 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: gradientText 3s ease infinite;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   text-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
 }
 
@@ -170,7 +170,9 @@ body {
 }
 
 .hero-subtitle {
+  font-family: 'Poppins';
   font-size: 1.5rem;
+  font-weight: 300;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 3rem;
   font-style: italic;
@@ -200,7 +202,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 2rem 5rem;
   position: relative;
   flex-shrink: 0;
   width: 100%;
