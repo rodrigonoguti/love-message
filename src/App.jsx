@@ -179,6 +179,68 @@ const FloatingHeart = ({ delay = 0 }) => {
   );
 };
 
+const FinalCelebration = ({ isActive }) => {
+  const emojis = ['♥️', '🥰', '💕', '💖', '💗', '💓', '💞', '💘', '💖', '💗', '💓', '💞', '💘'];
+  
+  if (!isActive) return null;
+  
+  return (
+    <div className="final-celebration" style={{ 
+      position: 'fixed', 
+      top: 0, 
+      left: 0, 
+      width: '100vw', 
+      height: '100vh', 
+      pointerEvents: 'none',
+      zIndex: 9999,
+      overflow: 'hidden'
+    }}>
+      {[...Array(25)].map((_, i) => {
+        const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+        const delay = Math.random() * 3;
+        const xPosition = Math.random() * 90 + 5; // 5% to 95% to avoid edges
+        const duration = 4 + Math.random() * 2;
+        const rotation = Math.random() * 720 - 360; // -360 to 360 degrees
+        
+        return (
+          <motion.div
+            key={`celebration-${i}`}
+            className="celebration-emoji"
+            initial={{ 
+              y: window.innerHeight + 50, 
+              x: `${xPosition}vw`, 
+              opacity: 0,
+              scale: 0.3,
+              rotate: 0
+            }}
+            animate={{ 
+              y: -100, 
+              opacity: [0, 0.2, 1, 1, 0.8, 0],
+              scale: [0.3, 0.8, 1.2, 1, 0.8, 0.3],
+              rotate: rotation
+            }}
+            transition={{
+              duration,
+              delay,
+              ease: "easeOut",
+              times: [0, 0.1, 0.3, 0.6, 0.8, 1]
+            }}
+            style={{
+              position: 'absolute',
+              fontSize: '2.5rem',
+              left: 0,
+              pointerEvents: 'none',
+              willChange: 'transform, opacity'
+            }}
+          >
+            {emoji}
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+};
+
 const ScrollProgress = ({ currentSlide, totalSlides }) => {
   const progress = currentSlide / totalSlides;
   
@@ -448,6 +510,8 @@ function App() {
           <p>Made with 💕 for all the lovers in the world</p>
         </motion.div>
       </footer>
+
+      <FinalCelebration isActive={currentSlide >= loveMessages.length} />
     </div>
   );
 }
