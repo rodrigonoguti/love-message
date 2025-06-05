@@ -200,6 +200,11 @@ function App() {
   const isScrollingRef = useRef(false);
   const lastWheelTimeRef = useRef(0);
   const accumulatedDeltaRef = useRef(0);
+  
+  // Touch handling refs
+  const touchStartYRef = useRef(0);
+  const touchStartTimeRef = useRef(0);
+  const isTouchScrollingRef = useRef(false);
 
   useEffect(() => {
     let timeoutId;
@@ -271,15 +276,66 @@ function App() {
       }
     };
 
+    const handleTouchStart = (e) => {
+      if (isTouchScrollingRef.current) return;
+      
+      touchStartYRef.current = e.touches[0].clientY;
+      touchStartTimeRef.current = Date.now();
+    };
+
+    const handleTouchMove = (e) => {
+      // Prevent default scrolling behavior
+      e.preventDefault();
+    };
+
+    const handleTouchEnd = (e) => {
+      if (isTouchScrollingRef.current) return;
+      
+      const touchEndY = e.changedTouches[0].clientY;
+      const touchEndTime = Date.now();
+      
+      const deltaY = touchStartYRef.current - touchEndY;
+      const deltaTime = touchEndTime - touchStartTimeRef.current;
+      
+      // Minimum swipe distance and maximum time for a valid swipe
+      const minSwipeDistance = 50;
+      const maxSwipeTime = 500;
+      
+      if (Math.abs(deltaY) >= minSwipeDistance && deltaTime <= maxSwipeTime) {
+        const direction = deltaY > 0 ? 1 : -1; // Swipe up = next slide, swipe down = previous slide
+        
+        // Set hasScrolled to true on first swipe
+        if (!hasScrolled) {
+          setHasScrolled(true);
+        }
+        
+        setCurrentSlide(prev => {
+          const newSlide = Math.max(0, Math.min(loveMessages.length, prev + direction));
+          return newSlide;
+        });
+        
+        isTouchScrollingRef.current = true;
+        setTimeout(() => {
+          isTouchScrollingRef.current = false;
+        }, 800);
+      }
+    };
+
     const container = containerRef.current;
     if (container) {
       container.addEventListener('wheel', handleWheel, { passive: false });
+      container.addEventListener('touchstart', handleTouchStart, { passive: true });
+      container.addEventListener('touchmove', handleTouchMove, { passive: false });
+      container.addEventListener('touchend', handleTouchEnd, { passive: true });
       window.addEventListener('keydown', handleKeyDown);
     }
 
     return () => {
       if (container) {
         container.removeEventListener('wheel', handleWheel);
+        container.removeEventListener('touchstart', handleTouchStart);
+        container.removeEventListener('touchmove', handleTouchMove);
+        container.removeEventListener('touchend', handleTouchEnd);
         window.removeEventListener('keydown', handleKeyDown);
       }
       clearTimeout(timeoutId);
