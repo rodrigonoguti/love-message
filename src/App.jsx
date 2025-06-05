@@ -19,44 +19,45 @@ const loveMessages = [
   {
     id: 3,
     message: "You are the poetry I never knew how to write and the song I never knew how to sing.",
-    author: "My Muse"
+    author: "My Muse",
+    photo: "https://as2.ftcdn.net/v2/jpg/02/77/68/51/1000_F_277685185_UAYxm224UPelni1rxsuAUZQbfhly0RpL.jpg"
   },
-  {
-    id: 4,
-    message: "Love is not about how many days, months, or years you have been together. It's about how much you love each other every single day.",
-    author: "Timeless Love"
-  },
-  {
-    id: 5,
-    message: "You make my heart smile in ways I never thought possible.",
-    author: "Pure Joy"
-  },
-  {
-    id: 6,
-    message: "In a sea of people, my eyes will always search for you.",
-    author: "My Compass"
-  },
-  {
-    id: 7,
-    message: "You are my today and all of my tomorrows.",
-    author: "Eternal Promise"
-  },
-  {
-    id: 8,
-    message: "I love you not only for what you are, but for what I am when I am with you.",
-    author: "Better Together"
-  },
-  {
-    id: 9,
-    message: "You are the missing piece I never knew my heart needed.",
-    author: "Complete"
-  },
-  {
-    id: 10,
-    message: "Every love story is beautiful, but ours is my favorite.",
-    author: "Our Story",
-    photo: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&h=400&fit=crop&crop=center"
-  }
+  // {
+  //   id: 4,
+  //   message: "Love is not about how many days, months, or years you have been together. It's about how much you love each other every single day.",
+  //   author: "Timeless Love"
+  // },
+  // {
+  //   id: 5,
+  //   message: "You make my heart smile in ways I never thought possible.",
+  //   author: "Pure Joy"
+  // },
+  // {
+  //   id: 6,
+  //   message: "In a sea of people, my eyes will always search for you.",
+  //   author: "My Compass"
+  // },
+  // {
+  //   id: 7,
+  //   message: "You are my today and all of my tomorrows.",
+  //   author: "Eternal Promise"
+  // },
+  // {
+  //   id: 8,
+  //   message: "I love you not only for what you are, but for what I am when I am with you.",
+  //   author: "Better Together"
+  // },
+  // {
+  //   id: 9,
+  //   message: "You are the missing piece I never knew my heart needed.",
+  //   author: "Complete"
+  // },
+  // {
+  //   id: 10,
+  //   message: "Every love story is beautiful, but ours is my favorite.",
+  //   author: "Our Story",
+  //   photo: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&h=400&fit=crop&crop=center"
+  // }
 ];
 
 const MessageSlide = ({ message, index, isActive }) => {
