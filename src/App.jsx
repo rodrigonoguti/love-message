@@ -3,18 +3,20 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './App.css';
 
-const youtubeVideo = "https://www.youtube.com/embed/l6VdQC-i-SE?autoplay=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&mute=0&start=0"
+const youtubeVideo = "https://www.youtube.com/embed/l6VdQC-i-SE?autoplay=1&playlist=l6VdQC-i-SE&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&mute=0&start=0"
 
 const loveMessages = [
   {
     id: 1,
     message: "Every moment with you feels like a beautiful dream I never want to wake up from.",
-    author: "Your Heart"
+    author: "Your Heart",
+    photo: "https://as2.ftcdn.net/v2/jpg/02/77/68/49/1000_F_277684942_omHlbsMwCEv2SWWuUxvOvnQMVaprYYPD.jpg"
   },
   {
     id: 2,
     message: "In your eyes, I found my home. In your heart, I found my love. In your soul, I found my mate.",
-    author: "Forever Yours"
+    author: "Forever Yours",
+    photo: "https://as1.ftcdn.net/v2/jpg/00/88/38/78/1000_F_88387891_n2nqvC7uaVvWIRK9APxMFcmyIRP7vCdZ.jpg"
   },
   {
     id: 3,

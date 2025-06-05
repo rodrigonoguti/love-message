@@ -331,9 +331,9 @@ body {
   position: relative;
   max-width: 500px;
   width: 100%;
-  /* border-radius: 20px; */
+  border-radius: 20px;
   overflow: hidden;
-  /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .message-photo img {
@@ -343,18 +343,8 @@ body {
   border-radius: 20px;
   position: relative;
   z-index: 1;
-  mask: radial-gradient(ellipse at center, 
-    rgba(0, 0, 0, 1) 0%, 
-    rgba(0, 0, 0, 1) 25%, 
-    rgba(0, 0, 0, 0.6) 40%, 
-    rgba(0, 0, 0, 0.2) 55%, 
-    rgba(0, 0, 0, 0) 70%);
-  -webkit-mask: radial-gradient(ellipse at center, 
-    rgba(0, 0, 0, 1) 0%, 
-    rgba(0, 0, 0, 1) 25%, 
-    rgba(0, 0, 0, 0.6) 40%, 
-    rgba(0, 0, 0, 0.2) 55%, 
-    rgba(0, 0, 0, 0) 70%);
+  mask: radial-gradient(ellipse at center, black 20%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.1) 80%, transparent 100%);
+  -webkit-mask: radial-gradient(ellipse at center, black 20%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.1) 80%, transparent 100%);
 }
 
 /* Responsive photo styles */
